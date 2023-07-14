@@ -22,3 +22,4 @@ before_tag(context, tag), after_tag(context, tag)
 
 def before_all(context):
     context.config.setup_logging()
+
