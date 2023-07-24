@@ -1,20 +1,34 @@
 # from behave import given, when, then
 #
-# class Frobulator:
-#     def __init__(self, text):
-#         self.text = text
+# class Frobulator(object):
+#     def __init__(self, text=None):
+#         self.text = None
+#         self.activated = False
 #
 #     def activate(self):
-#         return "English"
+#         self.activated = True
+#
+#     def seems_like_language(self):
+#         """
+#         Business logic how frobulator should react/oracle on text data.
+#         """
+#         assert self.text is not None
+#         assert self.activated
+#         if self.text.startswith("Lorem ipsum"):
+#             return "English"
+#         else:
+#             return "UNKNOWN"
 #
 # @given('a sample text loaded into the frobulator')
-# def step_given_a_sample_text_loaded_into_the_frobulator(context):
-#     context.frobulator = Frobulator(context.text)
+# def step_given_load_text_into_frobulator(context):
+#     context.frobulator = Frobulator()
+#     context.frobulator.text = context.text
 #
 # @when('we activate the frobulator')
-# def step_when_we_activate_the_frobulator(context):
-#     context.frobulator_result = context.frobulator.activate()
+# def step_when_activate_frobulator(context):
+#     context.frobulator.activate()
 #
 # @then('we will find it similar to English')
-# def step_then_we_will_find_it_similar_to_english(context):
-#     assert context.frobulator_result == "English"
+# def step_then_find_it_similar_to_english(context):
+#     result = context.frobulator.seems_like_language()
+#     assert result == "English", f'Expected "English", but got "{result}"'

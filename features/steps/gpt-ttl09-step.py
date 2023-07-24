@@ -40,3 +40,46 @@
 # @then('the ninja should run for his life')
 # def step_then_the_ninja_should_run_for_his_life(context):
 #     assert context.ninja_action == "run for his life"
+
+# from behave import given, when, then
+#
+# class NinjaFight(object):
+#     """
+#     Domain model for ninja fights.
+#     """
+#     # pylint: disable=R0903
+#
+#     def __init__(self, with_ninja_level=None):
+#         self.with_ninja_level = with_ninja_level
+#         self.opponent = None
+#
+#     def decision(self):
+#         """
+#         Business logic how a Ninja should react to increase his survival rate.
+#         """
+#         assert self.with_ninja_level is not None
+#         assert self.opponent is not None
+#         if self.opponent == "Chuck Norris":
+#             return "run for his life"
+#         if "black-belt" in self.with_ninja_level:
+#             return "engage the opponent"
+#         else:
+#             return "run for his life"
+#
+# @given('the ninja encounters another opponent')
+# def step_the_ninja_encounters_another_opponent(context):
+#     pass
+#
+# @given('the ninja has a {level} level black-belt')
+# def step_given_ninja_has_belt(context, level):
+#     level_mapping = {"third": "3rd", "second": "2nd"}  # Mapping English words to belt levels
+#     context.fight.with_ninja_level = level_mapping[level]
+#
+# @when('attacked by {opponent}')
+# def step_when_attacked_by(context, opponent):
+#     context.fight.opponent = opponent
+#
+# @then('the ninja should {decision}')
+# def step_then_ninja_should(context, decision):
+#     assert context.fight.decision() == decision, \
+#         f'Expected decision: "{decision}", but got: "{context.fight.decision()}"'
